@@ -7,7 +7,12 @@ void jump_search(int *arr, int key,int n){
 int flag=0,cnt=0,prev=0;
 int jump = sqrt(n);
 
+if(arr[0]>key  || arr[n-1]<key){
+    cnt++;
+    flag=0;
+}
 
+else{
 while(arr[jump]<=key && jump < n){
     cnt++;
     prev = jump;
@@ -27,7 +32,7 @@ for(int i= prev;i<jump;i++){
     else
         cnt++;
 }
-
+}
 
 if (flag==1){
     cout<<"Present "<<cnt;
