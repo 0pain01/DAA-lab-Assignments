@@ -36,11 +36,18 @@ int partition(int *arr,int l, int h)
     return end;
 } 
 
+int partition_random(int *arr,int l,int h)
+{
+    int random = l + rand()%(h - l);
+    swap(&arr[random],&arr[l]);
+    return partition(arr,l,h);
+} 
+
 void quickSort(int *arr, int l, int h)
 {
     if(l<h)
     {
-        int loc = partition(arr,l,h);
+        int loc = partition_random(arr,l,h);
         quickSort(arr,l,loc-1);
         quickSort(arr,loc+1,h);
     }
